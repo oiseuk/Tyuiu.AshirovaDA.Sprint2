@@ -53,7 +53,7 @@ namespace Tyuiu.AshirovaDA.Sprint2.Task6.V8.Test
         public void ValidFindDateOfPreviousDay_InvalidMonth()
         {
             DataService ds = new DataService();
-            Assert.ThrowsException<ArgumentException>(() => ds.FindDateOfPreviousDay(13, 1));
+            Assert.ThrowsExactly<ArgumentException>(() => ds.FindDateOfPreviousDay(13, 1));
         }
     }
 }
