@@ -7,16 +7,16 @@ namespace Tyuiu.AshirovaDA.Sprint2.Task6.V8.Lib
     {
         public string FindDateOfPreviousDay(int n, int m)
         {
-            // n — месяц, m — день
+            // n — день, m — месяц
 
-            if (m > 1)
+            if (n > 1)
             {
-                m--;   // уменьшаем день
+                n--;   // уменьшаем день
             }
             else
             {
-                // m == 1 → переходим на последний день предыдущего месяца
-                int daysInPrevMonth = n switch
+                // n == 1 → переходим на последний день предыдущего месяца
+                int daysInPrevMonth = m switch
                 {
                     2 => 31,   // предыдущий для февраля — январь
                     3 => 28,   // предыдущий для марта — февраль (не високосный)
@@ -29,14 +29,14 @@ namespace Tyuiu.AshirovaDA.Sprint2.Task6.V8.Lib
                     10 => 30,
                     11 => 31,
                     12 => 30,
-                    _ => throw new ArgumentException($"Неверный номер месяца: {n}")
+                    _ => throw new ArgumentException($"Неверный номер месяца: {m}")
                 };
 
-                m = daysInPrevMonth;
-                n--;
+                n = daysInPrevMonth;
+                m--;
             }
 
-            return $"{m:D2}.{n:D2}";   // ДД.ММ
+            return $"{n:D2}.{m:D2}";   // ДД.ММ
         }
     }
 }
